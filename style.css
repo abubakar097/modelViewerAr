@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+}
+
+canvas {
+  display: block;
+}
+
+#helmet {
+  height: 400px;
+  width: 500px;
+}

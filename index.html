@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <model-viewer
+      id="helmet"
+      camera-controls
+      touch-action="pan-y"
+      src="./assets/scene.gltf"
+      ar
+      alt="A 3D model of a helmet"
+    >
+    </model-viewer>
+    <script type="module">
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      let value = params.id;
+      console.log(value);
+      const modelViewerTexture1 = document.querySelector("model-viewer#helmet");
+      modelViewerTexture1.addEventListener("load", async () => {
+        const material = modelViewerTexture1.model.materials[0];
+        const texture = await modelViewerTexture1.createTexture(
+          "./assets/abstract.jpg"
+        );
+        material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
+      });
+    </script>
+  </body>
+</html>
