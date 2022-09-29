@@ -12,7 +12,12 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
+    "@google/model-viewer": "^2.0.2",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
     "babylonjs": "^5.25.0",
+    "fullscreen-polyfill": "^1.0.4",
+    "intersection-observer": "^0.12.2",
+    "resize-observer-polyfill": "^1.5.1",
     "three": "^0.144.0"
   }
 }
