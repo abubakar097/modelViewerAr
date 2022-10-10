@@ -14,8 +14,8 @@ body {
 model-viewer {
   overflow-x: hidden;
   position: realtive;
-  height: 500px;
-  width: 400px;
+  height: 400px;
+  width: 300px;
 }
 .icon {
   height: 45px;
@@ -29,7 +29,7 @@ model-viewer {
   transform: translateX(-50%);
   white-space: nowrap;
   bottom: 0px;
-  padding: 0px 40px 0px 40px;
+  padding: 0px 20px 0px 20px;
   font-family: Roboto Regular, Helvetica Neue, sans-serif;
   font-size: 14px;
   color: #4285f4;
