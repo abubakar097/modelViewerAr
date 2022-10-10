@@ -18,10 +18,9 @@
       id="helmet"
       camera-controls
       touch-action="pan-y"
-      src="https://model-viewer-ar-xwsb.vercel.app/scene.gltf"
+      src="https://model-viewer-ar-xwsb.vercel.app/assets/scene.gltf"
       shadowintensity="1"
-      poster="https://model-viewer-ar-xwsb.vercel.app/abstract.jpg"
-      ios-src="https://model-viewer-ar-xwsb.vercel.app/ios-scene.usdz"
+      ios-src="https://model-viewer-ar-xwsb.vercel.app/assets/ios-scene.usdz"
       ar
       alt="A 3D model of a helmet"
       placement="wall"
@@ -67,12 +66,10 @@
         get: (searchParams, prop) => searchParams.get(prop),
       });
       let value = params.id;
-      const modelViewerTexture1 = document.querySelector("model-viewer#helmet");
-      modelViewerTexture1.addEventListener("load", async () => {
-        const material = modelViewerTexture1.model.materials[0];
-        const texture = await modelViewerTexture1.createTexture(
-          "./assets/abstract.jpg"
-        );
+      const modelViewerTexture = document.querySelector("model-viewer#helmet");
+      modelViewerTexture.addEventListener("load", async () => {
+        const material = modelViewerTexture.model.materials[0];
+        const texture = await modelViewerTexture.createTexture(value);
         material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
       });
     </script>

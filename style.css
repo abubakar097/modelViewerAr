@@ -16,6 +16,7 @@ model-viewer {
   position: realtive;
   height: 400px;
   width: 300px;
+  transform: rotate(360deg);
 }
 .icon {
   height: 45px;
