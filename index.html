@@ -15,12 +15,12 @@
   </head>
   <body>
     <model-viewer
-      id="helmet"
+      id="model"
       camera-controls
       touch-action="pan-y"
-      src="https://model-viewer-ar-xwsb.vercel.app/scene.gltf"
+      src="https://model-viewer-ar-xwsb.vercel.app/scene.glb"
       shadowintensity="1"
-      ios-src="https://model-viewer-ar-xwsb.vercel.app/ios-scene.usdz"
+      ios-src="https://model-viewer-ar-xwsb.vercel.app/ios-scene.usdc"
       ar
       alt="A 3D model of a helmet"
       placement="wall"
@@ -66,8 +66,9 @@
         get: (searchParams, prop) => searchParams.get(prop),
       });
       let value = params.id;
-      const modelViewerTexture = document.querySelector("model-viewer#helmet");
+      const modelViewerTexture = document.querySelector("model-viewer#model");
       modelViewerTexture.addEventListener("load", async () => {
+        console.log(modelViewerTexture.model.materials);
         const material = modelViewerTexture.model.materials[0];
         const texture = await modelViewerTexture.createTexture(value);
         material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
