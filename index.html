@@ -46,13 +46,16 @@
         </svg>
         View in your space
       </button>
-
+      <div class="container">
+        <label for="setColor">Select Color</label>
+        <input type="color" id="setColor" />
+      </div>
       <button id="ar-failure">AR is not tracking!</button>
     </model-viewer>
     <script
+      async
       type="module"
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
-      defer
     ></script>
     <script
       nomodule
@@ -63,12 +66,18 @@
         get: (searchParams, prop) => searchParams.get(prop),
       });
       let value = params.id;
+
       const modelViewerTexture = document.querySelector("model-viewer#model");
       modelViewerTexture.addEventListener("load", async () => {
-        console.log(modelViewerTexture.model.materials);
         const material = modelViewerTexture.model.materials[0];
         const texture = await modelViewerTexture.createTexture(value);
         material.pbrMetallicRoughness["baseColorTexture"].setTexture(texture);
+      });
+
+      const colorChange = document.getElementById("setColor");
+      colorChange.addEventListener("input", (e) => {
+        const material2 = modelViewerTexture.model.materials[1];
+        material2.pbrMetallicRoughness.setBaseColorFactor(e.target.value);
       });
     </script>
   </body>
